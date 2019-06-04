@@ -13,7 +13,7 @@ class Config():
     # Setup database URL and credentials
     APP_DB = {
         'host': 'localhost',
-        'db': 'bottle_collector',
+        'db': 'bottle_collector_final',
         'user': 'root',
         'password': '',
         'port': 3306
