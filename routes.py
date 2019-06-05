@@ -23,16 +23,48 @@ def sample_route():
 
 @handler.route('/add_user', methods=['POST'])
 def add_user():
+    user = User({
+       'id': None,
+        'name': '',
+        'address': '',
+        'birthday': datetime.now(),
+        'gender': ''        
+     })
 
-    # SOMETHING LIKE THIS
-    # You need to figure out where to get the values needed here
-    # User({
-    #     'id': None, # new items always have NONE IDS
-    #     'name': '',
-    #     'contact_number': '',
-    #     'address': '',
-    #     'birthday': datetime.now(),
-    #     'gender': ''        
-    # })
+    db.session.add(user)
+    db.session.commit()
 
-    return
+    return user.serialize()
+
+@handler.route('/add_bottles', methods=['POST'])
+def add_bottle():
+    Bottle({
+        'id': None,
+        'name': '',
+        'type': '',
+        'points': ''        
+     })
+
+    return Bottle
+
+@handler.route('/add_location', methods=['POST'])
+def add_location():
+    Location({
+        'id': None,
+        'location_name': ''      
+     })
+
+    return Location
+
+@handler.route('/add_transactions', methods=['POST'])
+def add_transaction():
+    Transaction({
+        'id': None,
+        'user_name': '',
+        'location_id': '',
+        'bottle_type':'',
+        'date': datetime.now()       
+     })
+
+    return Transaction
+
