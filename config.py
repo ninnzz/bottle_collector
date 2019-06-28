@@ -1,10 +1,9 @@
 """
 Configuration class
 """
-
 class Config():
     # TODO
-    APP_NAME = 'Replace with application name'
+    APP_NAME = 'plastic bottle collector'
 
     # Enable debug mode
     DEBUG = True
@@ -15,7 +14,7 @@ class Config():
         'host': 'localhost',
         'db': 'bottle_collector_final',
         'user': 'root',
-        'password': '',
+        'password': 'jabelojabelo101',
         'port': 3306
     }
 
@@ -32,4 +31,4 @@ class Config():
     # TODO
     # This is where frontend should go, create a route for all UI files
     # Setup template folder for webpages
-    TEMPLATE_FOLDER = '/replace/template/folder/here/'
+    TEMPLATE_FOLDER = "C:/Users/cecilia/Documents/programming_practice_l/templates"
