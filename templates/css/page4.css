@@ -1,0 +1,47 @@
+
+body{
+	height:400px;
+	width:450px;
+}
+
+.box{
+	border: 5px solid #000;
+
+}
+
+a {
+	font-size: 60px;
+	color: #b22222;
+	border: 5px solid #b22222;
+	height:70px;
+	padding:10px;
+	width:20px;
+	background-color: #f0ffff;
+	position: relative;
+	left: 700px;
+	bottom: 0 auto;
+}
+
+.list  {
+	font-family: century gothic;
+	color: #000;
+	font-weight: bold;
+	font-size: 20px;
+	position: relative;
+	left: 600px;
+	bottom: 10px;
+
+
+}
+
+body {
+	background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/00/13/49/32564b1eeea22c5.jpg");
+
+} 
+
+
+.booth {
+	width: 400px;
+	background: #ccc;
+}
+
