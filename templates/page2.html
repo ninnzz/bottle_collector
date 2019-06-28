@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="pahe2.css">
+	
+</head>
+<body>
+	<div class="Profile">
+		<img src="https://www.telegraph.co.uk/content/dam/films/2016/11/29/JS113926416chrispratt_trans_NvBQzQNjv4BqAkxErwRCehJfeaSerTYlkuQVrQw-c-qmpzxuMaWpIXU.jpg?imwidth=450">
+	</div>
+	
+	{% for tr in transactions: %}
+		<table>
+			<row>{{tr.date}}</row>
+			<row> {{tr.bottle_type}}</row>
+			<row> {{tr.location_id}} </row>
+		</table>
+
+
+   	{% endfor %}
+       
+		</ol>
+	</div>
+	<div>
+		<h1> Profile </h1>
+		<h3> Name:{{name}} </h3>
+		<h3> Address: {{address}}</h3>
+		<h3> Birthday: {{birthday}}  </h3>
+		<h3> Gender: {{gender}} </h3>
+		
+	</div>
+
+	<a href="./page4">Next</a>
+
+
+	</body>
+</html>
