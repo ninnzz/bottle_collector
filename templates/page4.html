@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+  <meta charset="UTF-8"
+	<link rel="stylesheet" type="text/css" href="page4.css">
+	<link rel="stylesheet" type="text/py" href="capture.py">
+
+  <script src="javascript/jquery-3.4.1.min" type="text/javascript"></script>
+  <script src="/async.js" type="text/javascript "></script>
+</head>
+<body>
+  <div id="main">
+    <h1>Upload Your Images</h1>
+    <form method="post" enctype="multipart/form-data"  action="upload.php">
+      <input type="file" name="images" id="images" multiple />
+      <button type="submit" id="btn">Upload Files!</button>
+    </form>
+ 
+    <div id="response">
+      
+    </div>
+    <ul id="image-list">
+      
+    </ul>
+
+
+    <div>
+
+    <video src="http://127.0.0.1:5000/stream" height="360" width="640" style="border: 1px solid #000;"></video>
+    </div>
+
+
+
+    </div>
+ 
+  </div>
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script src="upload.js"></script>
+</body>
+</html>

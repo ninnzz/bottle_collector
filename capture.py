@@ -14,25 +14,23 @@ def draw_box(Image, x, y, w, h):
     cv2.line(Image, (x + w, (y + int(h / 5 * 4))), (x + w, y + h), WHITE, 2)
 
 
+
 class Video(object):
     def __init__(self):
         self.video = cv2.VideoCapture(0)
 
     def __del__(self):
         self.video.release()
-        cv2.destroyAllWindows()
-
     def get_frame(self):
-        ret, frame = self.video.read()
-        ret, jpeg = cv2.imencode('.jpg', frame)
-        
-        out = '--{app}\n'.encode()
-        out += b'Content-type: image/jpeg\n'
-        out += 'Content-length: {}\n'.format(len(jpeg)).encode()
-        out += b'\n'
-        out += jpeg.tostring()
-        out += b'\n'
-        return out
+    	ret, frame = self.video.read()
+    	gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    	faces = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5 )
+    	for (x, y, w, h) in faces:
+    		print(x, y, w, h)
+    		roi_gray = gray[y:y+h, x:x+w] #(ycord1 start, ycord2 end)
+    		roi_color = frame[y:y+h, x:x+w]
+    		draw_box(gray, x, y, w, h)
+    	ret, jpeg = cv2.imencode('.jpg', gray)
 
-    def remove_everything():
-        cv2.destroyAllWindows()
+    	return jpeg.tobytes()
+    	cv2.destroyAllWindows()
