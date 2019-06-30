@@ -7,37 +7,62 @@
 	<link rel="stylesheet" type="text/css" href="page4.css">
 	<link rel="stylesheet" type="text/py" href="capture.py">
 
-  <script src="javascript/jquery-3.4.1.min" type="text/javascript"></script>
-  <script src="/async.js" type="text/javascript "></script>
 </head>
 <body>
   <div id="main">
-    <h1>Upload Your Images</h1>
-    <form method="post" enctype="multipart/form-data"  action="upload.php">
-      <input type="file" name="images" id="images" multiple />
-      <button type="submit" id="btn">Upload Files!</button>
-    </form>
- 
-    <div id="response">
-      
-    </div>
-    <ul id="image-list">
-      
-    </ul>
 
-
-    <div>
-
-    <video src="http://127.0.0.1:5000/stream" height="360" width="640" style="border: 1px solid #000;"></video>
+    <div id="screenshot">
+      <video autoplay></video>
+      <img src="">
+      <canvas style="display:none;"></canvas>
+      <button id="capture-button">Capture video</button>
+      <button id="screenshot-button">Capture video</button>
+      <button id="cssfilters-apply">Apply CSS filter</button>
     </div>
 
-
-
-    </div>
- 
   </div>
- 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script src="upload.js"></script>
+  <script type="text/javascript">
+
+    const captureVideoButton = document.querySelector('#capture-button');
+    const screenshotButton = document.querySelector('#screenshot-button');
+    const img = document.querySelector('#screenshot img');
+    const video = document.querySelector('#screenshot video');
+    const constraints = {
+      video: true
+    };
+
+    const canvas = document.createElement('canvas');
+
+    // Start camera
+    navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
+
+    screenshotButton.onclick = video.onclick = function() {
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext('2d').drawImage(video, 0, 0);
+  
+      // Other browsers will fall back to image/png
+      // Remove this, nilagay ko lang para makita ung image
+      img.src = canvas.toDataURL('image/webp');
+      callBottleCheckerAPI();
+
+    };
+
+    function handleSuccess(stream) {
+      screenshotButton.disabled = false;
+      video.srcObject = stream;
+    }
+
+    function handleError(stream) {
+      console.log('Error lol');
+    }
+
+    function callBottleCheckerAPI() {
+
+    }
+
+  </script>
+
+
 </body>
 </html>

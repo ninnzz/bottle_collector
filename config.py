@@ -24,11 +24,11 @@ class Config():
         APP_DB['user'], APP_DB['password'], APP_DB['host'], APP_DB['db'])
 
     # Setup CORS
-    ALLOWED_HEADERS = ['Access-Token', 'Content-Type', 'referrer', 'Authorization', 'Cache-Control', 'X-Requested-With']
+    ALLOWED_HEADERS = ['Origin', 'Accept', 'Content-Type', 'X-Requested-With', 'X-CSRF-Token']
     ALLOWED_ORIGINS = '*'
     ALLOWED_METHODS = ['GET', 'HEAD', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE']
 
     # TODO
     # This is where frontend should go, create a route for all UI files
     # Setup template folder for webpages
-    TEMPLATE_FOLDER = "C:/Users/cecilia/Documents/programming_practice_l/templates"
+    TEMPLATE_FOLDER = "templates"

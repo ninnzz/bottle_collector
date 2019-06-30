@@ -156,9 +156,12 @@ def gen(capture):
 
 @handler.route('/stream')
 def stream():
+
+    boundary = 'app'
+
     return Response(gen(Video()),
-                    mimetype='multipart/x-mixed-replace; boundary=app',
-                    content_type='multipart/x-mixed-replace; boundary=app',
+                    mimetype='multipart/x-mixed-replace; boundary={}'.format(boundary),
+                    content_type='multipart/x-mixed-replace; boundary={}'.format(boundary),
                     status='200',
                     headers={
                         'Connection': 'keep-alive',
