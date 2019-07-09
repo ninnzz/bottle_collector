@@ -62,8 +62,13 @@ def sample_route():
     resp.set_cookie('user_id', user_id)
     return resp
 
-@handler.route('/check_prices', methods=['GET'])
+@handler.route('/check_prices', methods=['POST'])
 def check_prices():
+
+    image = request.files[0]
+    print(image)
+
+    user_id = request.form['user_id']
 
     bottles = [
         {
