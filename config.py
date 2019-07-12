@@ -31,4 +31,4 @@ class Config():
     # TODO
     # This is where frontend should go, create a route for all UI files
     # Setup template folder for webpages
-    TEMPLATE_FOLDER = "templates"
+    TEMPLATE_FOLDER = "C:/Users/cecilia/Documents/programming_practice_l/templates"

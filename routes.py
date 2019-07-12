@@ -39,7 +39,9 @@ def sample_route():
     if user is None:
         return "Error"
 
-    transactions = db.session.query(Transaction).filter(Transaction.user_id  == user.id).all()
+    transactions = db.session.query(Transaction, Bottle) \
+        .join(Bottle, Bottle.id == Transaction.bottle_type) \
+        .filter(Transaction.user_id  == user.id).all()
 
     name = user.name
     address = user.address
@@ -47,23 +49,32 @@ def sample_route():
     gender = user.gender
 
     _tr = []
+    total_points = 0
 
     for tr in transactions:
         _tr.append({
-            'location': tr.location_id,
-            'bottle_type': tr.bottle_type,
-            'date': tr.date,   
+            'location_id': tr.Transaction.location_id,
+            'bottle_name': tr.Bottle.name,
+            'date': tr.Transaction.date.strftime('%Y-%m-%d'),
+            'points': tr.Bottle.points   
         })
-        print(tr.location_id, tr.bottle_type, tr.date)
 
+        total_points += tr.Bottle.points
 
     username = request.cookies.get('user_id')
     resp = make_response(render_template('page2.html',**locals()))
     resp.set_cookie('user_id', user_id)
     return resp
 
-@handler.route('/check_prices', methods=['GET'])
+@handler.route('/check_prices', methods=['POST'])
 def check_prices():
+
+    #image = request.files[0]
+    image = request.form['file_name']
+    print(image)
+
+    user_id = request.form['user_id']
+    print('USER_ID: ', user_id)
 
     bottles = [
         {
@@ -169,5 +180,30 @@ def stream():
                         'Pragma': 'no-cache'
                     })
 
+@handler.route('/submit_bottle_records', methods=['GET'])
+def bottle_records():
+    user = 5
+    bottle_list = [1, 2, 3, 1, 2, 2, 2, 1, 1, 2, 3, 3, 1, 1]
+    location_id = 1
 
-#TEMPLATE_FOLDER = "C:/Users/cecilia/Documents/programming_practice_l/templates"
+    for bottle_id in bottle_list:
+        db.session.add(Transaction({
+            'id': None,
+            'user_id': user,
+            'location_id': location_id ,
+            'bottle_type': bottle_id,
+            'date': datetime.now()  
+            }))
+
+    db.session.commit()
+
+    unique_bottles = list(set(bottle_list))
+    bottle_info = db.session.query(Bottle).filter(Bottle.id.in_(unique_bottles)).all()
+    
+    points_map = {bottle.id: bottle.points for bottle in bottle_info}
+    total_points = 0
+
+    for bottle_id in bottle_list:
+        total_points += points_map[bottle_id]
+
+    return render_template('page5.html',**locals())
