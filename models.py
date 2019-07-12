@@ -27,13 +27,13 @@ class Bottle(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True, nullable=False)
-    _type = db.Column(db.Integer, nullable=False)
+    type = db.Column(db.Integer, nullable=False)
     points = db.Column(db.Integer, nullable=False)
     
 
     def __init__(self, bottles_obj):
         self.name = bottles_obj['name']
-        self._type = bottles_obj['_type']
+        self.type = bottles_obj['type']
         self.points = bottles_obj['points']
 
 class Location(db.Model):
@@ -55,7 +55,7 @@ class Transaction(db.Model):
     date = db.Column(db.DateTime(6), default=None)
 
     def __init__(self, transactions_obj):
-        self.user_name = transactions_obj['user_name']
+        self.user_id = transactions_obj['user_id']
         self.location_id = transactions_obj['location_id']
         self.bottle_type = transactions_obj['bottle_type']
         self.date = transactions_obj['date']
