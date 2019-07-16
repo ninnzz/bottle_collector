@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="../templates/css/page2.css"/>
+	
+</head>
+<body>
+	<div class="Profile">
+		<img src="https://www.telegraph.co.uk/content/dam/films/2016/11/29/JS113926416chrispratt_trans_NvBQzQNjv4BqAkxErwRCehJfeaSerTYlkuQVrQw-c-qmpzxuMaWpIXU.jpg?imwidth=450">
+	</div>
+
+	<div>
+		<h1> Profile </h1>
+		<h3> Name:{{name}} </h3>
+		<h3> Address: {{address}}</h3>
+		<h3> Birthday: {{birthday}}  </h3>
+		<h3> Gender: {{gender}} </h3>
+		<table>
+			<thead>
+				<tr>
+					<td>Date</td>
+					<td>Bottle Type</td>
+					<td>Location</td>
+					<td>Points</td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for tr in _tr: %}
+				<tr>
+					<td>{{tr.date}}</td>
+					<td> {{tr.bottle_name}}</td>
+					<td> {{tr.location_id}} </td>
+					<td> {{tr.points}} </td>
+				</tr>
+		   	{% endfor %}
+		   	<tr>
+		   		<td colspan="3">Total</td>
+		   		<td>{{total_points}}</td>
+		   	</tr>
+		   </tbody>
+	   	</table>
+		
+	</div>
+
+	<a href="./page4">Next</a>
+
+
+	</body>
+</html>

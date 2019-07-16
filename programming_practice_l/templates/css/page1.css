@@ -1,0 +1,75 @@
+body {
+	background-image: linear-gradient( #87ceeb , #191970);
+	height: 100%;
+	background-size: 1370px 700px;
+	background-repeat: no-repeat;
+
+}
+
+.logo{
+	
+
+}
+.welcome{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 88%;
+	background-color: #000;
+
+
+
+}
+p{
+	font-family: serif;
+	font-weight: bold;
+	font-size: 22px;
+	position: absolute;
+	top: 0px;
+	left: 2px;
+	right: 2px;
+	bottom: 107%;
+	color: white;
+
+
+}
+
+.description{
+	position: absolute;
+	top: 13%;
+	bottom: 78%;
+	left: 5%;
+	right: 55%;
+	font-size: 30px;
+	text-shadow: 2px 2px #FFFFFF
+}
+
+
+
+.scan{
+	position: absolute;
+	right: 9%;
+	left:65%;
+	bottom: 80%;
+	top: 30%;
+	text-shadow: 2px 2px #FFFFFF
+
+}
+
+form{
+	font-size: 25px;
+	size: 30px;
+	position: absolute;
+	left: 75%;
+	right: 70%;
+	bottom: 55%;
+	top: 15%;
+	font-weight: bold;
+
+}
+
+.card{
+	
+
+}
