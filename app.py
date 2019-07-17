@@ -7,6 +7,7 @@ from flask import Flask
 from models import db
 from config import Config
 from routes import handler
+from predictor import classifier
 
 
 def create_app(config):
@@ -29,6 +30,8 @@ def create_app(config):
         return response
 
     app.register_blueprint(handler)
+    classifier.load_data(Config.IMAGES_FOLDER)
+    classifier.train()
 
     return app
 

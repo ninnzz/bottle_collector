@@ -32,3 +32,5 @@ class Config():
     # This is where frontend should go, create a route for all UI files
     # Setup template folder for webpages
     TEMPLATE_FOLDER = "templates"
+
+    IMAGES_FOLDER = "/Users/ninz/Desktop/pics"

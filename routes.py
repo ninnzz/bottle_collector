@@ -1,6 +1,7 @@
 """
 Define all routes here
 """
+from predictor import classifier
 from models import db
 from models import *
 from flask import Blueprint
@@ -9,16 +10,10 @@ from flask import Flask, make_response
 from flask import request
 from flask import render_template, Response
 from camera_library import Video
-import pdb
 import random
-
-# to save cookie
-import json
 
 # to load cookie
 import json
-
-
 
 
 handler = Blueprint('router', __name__)
