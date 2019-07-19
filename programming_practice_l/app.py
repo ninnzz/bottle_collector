@@ -13,7 +13,11 @@ from camera_library import vid_worker
 
 def create_app(config):
     # Initializes flask object with config
-    app = Flask(Config.APP_NAME, template_folder=Config.TEMPLATE_FOLDER)
+    app = Flask(
+        Config.APP_NAME, 
+        template_folder=Config.TEMPLATE_FOLDER, 
+        static_folder=Config.TEMPLATE_FOLDER
+    )
 
     # Loads the needed config in the configuration file
     app.config.from_object(Config)
@@ -30,7 +34,6 @@ def create_app(config):
         response.headers.add('Access-Control-Allow-Methods', ','.join(app.config['ALLOWED_METHODS']))
         return response
 
-    vid_worker.start()
     app.register_blueprint(handler)
     classifier.load_data(Config.IMAGES_FOLDER)
     classifier.train()
@@ -38,5 +41,5 @@ def create_app(config):
     return app
 
 if __name__ == '__main__':
-   app = create_app(None)
-   app.run()
+    app = create_app(None)
+    app.run()

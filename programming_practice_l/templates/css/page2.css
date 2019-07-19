@@ -1,6 +1,6 @@
 h1 { 
 	font-family: century gothic;
-	color: #000;
+	color: #030;
 	font-weight: bold;
 	font-size: 45px;
 	text-align: left;
@@ -17,32 +17,36 @@ h3{
 	font-family: century gothic;
 	color: #000;
 	font-weight: bold;
-	font-size: 40px;
+	font-size: 35px;
 	text-align: left;
-	position: relative;
-	bottom: 340px;
+	position: absolute;
+	top: 15%;
+	bottom: 15px;
 
 
 }
 
-.list  {
+table  {
 	font-family: century gothic;
 	color: #000;
 	font-weight: bold;
-	font-size: 50px;
-	position: relative;
-	left:800px;
-	bottom: 300px;
+	font-size: 25px;
+	position: absolute;
+	left: 65%;
+	top: 15%;
 }
 body {
-	background-image: url("https://cdn.pixabay.com/photo/2017/11/06/05/22/design-2922794_960_720.jpg");
+	background-image: url("http://www.gingercreek.org/wp-content/uploads/2018/07/142443-widescreen-blue-ombre-background-1920x1080-photo.jpg");
+	background-repeat: no-repeat;
+	width: 100%;
+	height: auto;
 }
 
 a {
-	font-size: 70px;
+	font-size: 50px;
 	color: #b22222;
 	position: relative;
-	left: 1000px;
+	left: 50%;
 	border: 5px solid #b22222;
 	bottom: 500px;
 	height:70px;

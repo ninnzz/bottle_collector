@@ -43,7 +43,7 @@
   
       // Other browsers will fall back to image/png
       // Remove this, nilagay ko lang para makita ung image
-      img.src = canvas.toDataURL('image/webp');
+      img.src = canvas.toDataURL('image/jpg');
       callBottleCheckerAPI();
 
     };
@@ -58,7 +58,7 @@
     }
 
     function callBottleCheckerAPI() {
-        
+        console.log(canvas.toDataURL('image/jpeg'));
     }
 
   </script>

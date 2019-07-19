@@ -1,11 +1,15 @@
 import cv2
+import time
 
 class VideoWorker():
 
-    on_image = None
+    on_img = None
+    on_vid = None
     on_end = None
-    interval = 0.5
+    interval = 0.1
     started = False
+    screenshot = False
+    bottle_result = None
 
     def __init__(self, camera_number: int = 0):
         self.webcam = cv2.VideoCapture(camera_number)
@@ -23,8 +27,12 @@ class VideoWorker():
                     print('Camera image capture failed')
                     continue
 
-                if self.on_image is not None:
-                    self.on_image(frame)
+                if self.on_vid is not None:
+                    self.on_vid(frame)
+
+                if self.screenshot and self.on_img is not None:
+                    self.bottle_result = self.on_img(frame)
+                    self.screenshot = False
 
                 time.sleep(self.interval)
             else:

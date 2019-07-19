@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="/templates/javascript/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+
+	<figure>
+		<img style="width: 420px; height: 240px;" src="http://localhost:5000/stream">
+	</figure>
+
+  <input type="text" name="bottle_name" id="bottle_name" placeholder="bottle_name" />
+  <button onclick="addToTraining();">Add to training data</button>
+
+  <script type="text/javascript">
+    function addToTraining() {
+			$.ajax({
+				url: 'http://127.0.0.1:5000/add_training_image',
+				data: {
+          bottle_name: document.getElementById('bottle_name').value
+        },
+				error: failedAPIResult,
+				success: gotAPIResult,
+				type: 'POST'
+			});
+    }
+
+    function gotAPIResult(data) {
+      console.log(data);
+  	}
+
+    function failedAPIResult(error) {
+      console.log(error);
+    }
+
+  </script>
+</body>
+</html>
