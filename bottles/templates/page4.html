@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/templates/css/page4.css">
+  <script type="text/javascript" src="/templates/javascript/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+  <div id="main">
+
+    <div id="screenshot">
+		<figure style="width: 320px; height: 240px;">
+			<img style="width: 420px; height: 240px;" src="http://localhost:5000/stream">
+		</figure>
+		<button onclick="callBottleCheckerAPI();">Check price</button>
+    </div>
+	<table>
+		<thead>
+			<tr>
+				<td> Bottle </td>
+				<td> Point </td>
+			</tr>
+		</thead>
+		<tbody id="bottles">	
+		</tbody>
+	</table>
+
+	<form action="http://127.0.0.1:5000/submit_bottle_records" method="post">
+		
+		<input type="hidden" name="bottle_ids" value="" id="bottle_id_holder" />
+		<input type="submit" value="Submit bottles" />
+	</form>
+  </div>
+
+  <script type="text/javascript"> 
+    function callBottleCheckerAPI() {
+		$.ajax({
+			url: 'http://127.0.0.1:5000/check_prices',
+			data: {},
+			error: failedAPIResult,
+			success: gotAPIResult,
+			type: 'POST'
+		});
+
+    }
+
+    function gotAPIResult(data) {
+		console.log(data);
+		  bottle = document.getElementById("bottles");
+		  tr = document.createElement("tr");
+		  tr.innerHTML =  "<td>" +data.name + "</td> <td>" +data.points +"</td>";
+		  bottle.appendChild(tr);
+		  console.log(data.id);
+
+		 b_id = document.getElementById("bottle_id_holder");
+		 b_id.value = b_id.value+" "+ data.id; 
+		// add value to the form input type hidden
+
+  	}
+
+    function failedAPIResult(error) {
+      console.log(error);
+    }
+
+  </script>
+</body>
+</html>
