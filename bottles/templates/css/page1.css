@@ -1,0 +1,97 @@
+body {
+	background-image: linear-gradient( #87ceeb , #191970);
+	height: 100%;
+	background-size: 1370px 700px;
+	background-repeat: no-repeat;
+
+}
+
+.logo{
+	
+
+}
+h2 {
+
+	font-family: serif;
+	font-weight: bold;
+	font-size: 22px;
+	position: absolute;
+	top: 15px;
+	left: 50px;
+	right: 20px;
+	bottom: 10%;
+	color: #000;
+
+
+}
+p{
+	font-family: serif;
+	font-weight: bold;
+	font-size: 22px;
+	position: absolute;
+	top: 0px;
+	left: 2px;
+	right: 2px;
+	bottom: 107%;
+	color: white;
+
+
+}
+
+.description{
+
+	border: 35px solid transparent;
+    padding: 285px;
+    border-image: url("https://dhggywfvre0o8.cloudfront.net/app/uploads/2017/11/22153252/Typeform-Blog-BlackFriday-Cover-AskAwesomely.jpg") 20 round;
+
+}
+
+h1 {
+	position: absolute;
+	top: 13%;
+	bottom: 78%;
+	left: 5%;
+	right: 50%;
+	font-size: 55px;
+	text-shadow: 2px 2px #FFFFFF;
+
+}
+h2 {
+
+	position: absolute;
+	top: 20%;
+	bottom: 80%;
+	left: 38%;
+	right: 5%;
+	font-size: 30px;
+	text-shadow: 2px 2px #FFFFFF;
+	
+
+}
+.scan{
+	position: absolute;
+	right: 9%;
+	left:65%;
+	bottom: 80%;
+	top: 30%;
+	text-shadow: 2px 2px #FFFFFF
+	font-size: 40px;
+
+}
+
+form{
+	font-size: 25px;
+	size: 30px;
+	position: absolute;
+	left: 75%;
+	right: 70%;
+	bottom: 55%;
+	top: 15%;
+	font-weight: bold;
+
+}
+
+.card{
+	
+
+}

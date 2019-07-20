@@ -1,0 +1,36 @@
+body{
+	background-image: linear-gradient( #87ceeb , #191970);
+	height: 100%;
+	background-size: 1370px 700px;
+	background-repeat: no-repeat;
+}
+h1 {
+	font-size: 100px;
+	font-family: georgia;
+	text-align: center;
+	color: #000;
+	background: #fff;
+	
+
+}
+h3{
+	font-size: 50px;
+	font-family: arial;
+	text-align: center;
+	color: #000;
+	background: #fff;
+	
+}
+
+a{
+	font-size: 50px;
+	font-family: monospace;
+	background: #fff;
+	background-size: 60px;
+	color: #000;
+	font-weight: bold;
+	position: relative;
+	left: 1000px;
+	
+
+}
