@@ -12,9 +12,9 @@ class Config():
     # Setup database URL and credentials
     APP_DB = {
         'host': 'localhost',
-        'db': 'bottle_collector_final',
-        'user': 'root',
-        'password': 'jaablorz4ever',
+        'db': 'bottle_collector',
+        'user': 'bottle',
+        'password': 'user',
         'port': 3306
     }
 
@@ -33,4 +33,4 @@ class Config():
     # Setup template folder for webpages
     TEMPLATE_FOLDER = "templates"
 
-    IMAGES_FOLDER = "C:\\Users\\Acer\\Pictures\\pics"
+    IMAGES_FOLDER = "/home/pi/bottle_collector/images"

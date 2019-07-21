@@ -13,6 +13,8 @@ class VideoWorker():
 
     def __init__(self, camera_number: int = 0):
         self.webcam = cv2.VideoCapture(camera_number)
+        self.webcam.release()
+        self.webcam = cv2.VideoCapture(0)
         return
 
     def start(self):
