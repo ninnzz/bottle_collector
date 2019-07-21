@@ -11,7 +11,9 @@ from predictor import classifier
 from camera_library import vid_worker
 from flask import Flask, make_response
 from flask import render_template, Response, send_from_directory
-from gevent import queue, spawn, monkey
+# from gevent import queue, spawn, monkey
+import queue
+
 
 import os
 import cv2
@@ -21,7 +23,9 @@ import random
 import numpy as np
 
 
-monkey.patch_all()
+# monkey.patch_all()
+body = queue.Queue()
+# body = []
 handler = Blueprint('router', __name__)
 
 @handler.route('/')
@@ -105,8 +109,6 @@ def add_user():
 
 @handler.route('/stream')
 def stream():
-    body = queue.Queue()
-
     boundary = 'app'
 
     def on_vid(data):
@@ -119,16 +121,23 @@ def stream():
         out += b'\n'
         out += data.tostring()
         out += b'\n'
+        global body
         body.put(out)
 
     def on_end():
         body.put_nowait(StopIteration)
 
+    def gen():
+        while True:
+            yield body.get()
+        
+
     vid_worker.on_vid = on_vid
     vid_worker.on_end = on_end
-    spawn(vid_worker.start)
+    # spawn(vid_worker.start)
+    vid_worker.start()
 
-    return Response(body,
+    return Response(gen(),
                     mimetype='multipart/x-mixed-replace; boundary={}'.format(boundary),
                     content_type='multipart/x-mixed-replace; boundary={}'.format(boundary),
                     status='200',
