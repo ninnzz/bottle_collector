@@ -10,6 +10,7 @@ from datetime import datetime
 from predictor import classifier
 from camera_library import vid_worker
 from flask import Flask, make_response
+from mfrc522 import SimpleMFRC522
 from flask import render_template, Response, send_from_directory, jsonify
 # from gevent import queue, spawn, monkey
 
@@ -20,6 +21,7 @@ import json
 import queue
 import random
 import numpy as np
+import RPi.GPIO as GPIO
 
 
 # monkey.patch_all()
@@ -32,6 +34,20 @@ def index():
     resp.set_cookie('user_id', user_id)
     print(resp)
     return resp 
+
+
+@handler.route('/get_rfid_info', methods=['GET'])
+def get_rfid():
+    reader = SimpleMFRC522()
+
+    try:
+        id, text = reader.read()
+        user = db.session.query(User).filter(User.rfid == id).first()
+        
+    finally:
+        GPIO.cleanup()
+
+    return Response(json.dumps({'id': user.id}), headers={'Content-Type':'application/json'})
 
 
 @handler.route('/get_user', methods=['POST'])
@@ -236,3 +252,10 @@ def send_js(path):
 @handler.route('/css/<path:path>')
 def send_css(path):
     return send_from_directory('css', path)
+
+@handler.route('/wasted')
+def waste():
+    while True:
+        a = 1
+
+    return "a"

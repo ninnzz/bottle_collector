@@ -42,4 +42,4 @@ def create_app(config):
 
 if __name__ == '__main__':
     app = create_app(None)
-    app.run(use_reloader=False)
+    app.run(host='0.0.0.0', use_reloader=False, threaded=True)

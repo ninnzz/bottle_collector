@@ -9,6 +9,7 @@ class User(db.Model):
     __tablename__ = 'user'
 
     id = db.Column(db.Integer, primary_key=True)
+    rfid = db.Column(db.String(64), default=None)
     name = db.Column(db.String(64), unique=True, nullable=False)
     address = db.Column(db.String(128), default=None)
     birthday = db.Column(db.Date, default=None)
@@ -16,6 +17,7 @@ class User(db.Model):
 
     def __init__(self, user_obj):
         self.id = user_obj['id']
+        self.rfid = None
         self.name = user_obj['name']
         self.address = user_obj['address']
         self.birthday = user_obj['birthday']
