@@ -1,33 +1,86 @@
 h1 { 
-	font-family: century gothic;
+	font-family: rockwell;
 	color: #000;
 	font-weight: bold;
 	font-size: 45px;
 	text-align: top;
 	left: 5%;
-	position: relative;
-	bottom: 5px;
-	border: 5px solid #000;
-	height:55px;
-	padding:18px;
-	width:130px;
-	background-color: 	#4682b4;
-	text-shadow: 2px 2px #FFFFFF;
-
+	position: fixed;
+	bottom: 100px;
+	top: 25px;
+	border: 8px solid #000;
+	height:50px;
+	padding:20px;
+	width: 580px;
+	background-color: 	#1e90ff;
+	-webkit-text-stroke: 2px white;
+	letter-spacing: 18px;
+	text-align: center;
 }
 
-h3{ 
+.name{ 
 	font-family: century gothic;
 	color: #000;
 	font-weight: bold;
 	font-size: 30px;
 	left: 70px;
 	text-align: left;
-	position: relative;
-	bottom: 15px;
+	position: fixed;
+	bottom: 50px;
+	top: 180px;
     text-shadow: 2px 2px #FFFFFF;
 
 }
+.address { 
+	font-family: century gothic;
+	color: #000;
+	font-weight: bold;
+	font-size: 30px;
+	left: 70px;
+	text-align: left;
+	position: fixed;
+	bottom: 50px;
+	top: 260px;
+    text-shadow: 2px 2px #FFFFFF;
+
+}
+
+.birthday{
+	font-family: century gothic;
+	color: #000;
+	font-weight: bold;
+	font-size: 30px;
+	left: 70px;
+	text-align: left;
+	position: fixed;
+	bottom: 50px;
+	top: 340px;
+    text-shadow: 2px 2px #FFFFFF;
+}
+
+.gender {
+	font-family: century gothic;
+	color: #000;
+	font-weight: bold;
+	font-size: 30px;
+	left: 70px;
+	text-align: left;
+	position: fixed;
+	bottom: 50px;
+	top: 420px;
+    text-shadow: 2px 2px #FFFFFF;
+}
+
+h3 {
+
+	margin: 30px auto;
+    padding: 8px;
+    text-align: left;
+    border: 2px solid #000;
+    background-color: #1e90ff;
+    width: 610px;
+    height: 50px;
+  }
 
 table  {
 	font-family: century gothic;
@@ -39,7 +92,7 @@ table  {
 	top: 5%;
 }
 body {
-	background-image:linear-gradient( #87ceeb , #191970);
+	background-image:linear-gradient( #191970 , #02aab0);
 	height: 100%;
 	background-size: 10000000px 700px;
 	background-position: all;
@@ -47,17 +100,18 @@ body {
 }
 
 a {
-	font-size: 50px;
+	font-size: 45px;
 	color: #000;
-	position: relative;
-	left: 5%;
+	position: fixed;
+	left: 42%;
 	border: 5px solid #000;
-	top: 130px;
-	bottom: 5px;
-	height:70px;
-	padding:10px;
-	width:20px;
-	background-color: #4682b4;
-	text-shadow: 2px 2px #FFFFFF;
+	top: 550px;
+	bottom: 100px;
+	height:60px;
+	padding:0px;
+	width:120px;
+	background-color: #1e90ff;
+	text-shadow: 2px 2px white;
+	text-align: center;
 
 } 
