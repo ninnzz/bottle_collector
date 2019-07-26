@@ -1,14 +1,5 @@
 import cv2
 import time
-from threading import Thread
-
-
-def async_threaded(f):
-    def wrapper(*args, **kwargs):
-        thr = Thread(target=f, args=args, kwargs=kwargs)
-        thr.start()
-
-    return wrapper
 
 class VideoWorker():
 
@@ -22,11 +13,8 @@ class VideoWorker():
 
     def __init__(self, camera_number: int = 0):
         self.webcam = cv2.VideoCapture(camera_number)
-        self.webcam.release()
-        self.webcam = cv2.VideoCapture(0)
         return
 
-    @async_threaded
     def start(self):
         print('Webcam start')
         self.started = True
