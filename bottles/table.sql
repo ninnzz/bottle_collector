@@ -4,6 +4,7 @@ CREATE TABLE `user`(
   `address` varchar(128) DEFAULT NULL,
   `birthday` date DEFAULT NULL,
   `gender` varchar(4) DEFAULT NULL,
+  -- `rfid` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
@@ -29,4 +30,6 @@ CREATE TABLE `location` (
   `location_name` VARCHAR(64) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+
 
