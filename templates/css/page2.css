@@ -1,53 +1,117 @@
 h1 { 
-	font-family: century gothic;
+	font-family: rockwell;
 	color: #000;
 	font-weight: bold;
 	font-size: 45px;
-	text-align: left;
-	position: relative;
-	bottom: 330px;
-	border: 5px solid #000;
-	height:40px;
-	padding:10px;
-	width:130px;
-	background-color: 	#00ffff;
+	text-align: top;
+	left: 5%;
+	position: fixed;
+	bottom: 100px;
+	top: 25px;
+	border: 8px solid #000;
+	height:50px;
+	padding:20px;
+	width: 580px;
+	background-color: 	#1e90ff;
+	-webkit-text-stroke: 2px white;
+	letter-spacing: 18px;
+	text-align: center;
 }
 
-h3{ 
+.name{ 
 	font-family: century gothic;
 	color: #000;
 	font-weight: bold;
-	font-size: 40px;
+	font-size: 30px;
+	left: 70px;
 	text-align: left;
-	position: relative;
-	bottom: 340px;
-
+	position: fixed;
+	bottom: 50px;
+	top: 180px;
+    text-shadow: 2px 2px #FFFFFF;
 
 }
-
-.list  {
+.address { 
 	font-family: century gothic;
 	color: #000;
 	font-weight: bold;
-	font-size: 50px;
-	position: relative;
-	left:800px;
-	bottom: 300px;
+	font-size: 30px;
+	left: 70px;
+	text-align: left;
+	position: fixed;
+	bottom: 50px;
+	top: 260px;
+    text-shadow: 2px 2px #FFFFFF;
+
+}
+
+.birthday{
+	font-family: century gothic;
+	color: #000;
+	font-weight: bold;
+	font-size: 30px;
+	left: 70px;
+	text-align: left;
+	position: fixed;
+	bottom: 50px;
+	top: 340px;
+    text-shadow: 2px 2px #FFFFFF;
+}
+
+.gender {
+	font-family: century gothic;
+	color: #000;
+	font-weight: bold;
+	font-size: 30px;
+	left: 70px;
+	text-align: left;
+	position: fixed;
+	bottom: 50px;
+	top: 420px;
+    text-shadow: 2px 2px #FFFFFF;
+}
+
+h3 {
+
+	margin: 30px auto;
+    padding: 8px;
+    text-align: left;
+    border: 2px solid #000;
+    background-color: #1e90ff;
+    width: 610px;
+    height: 50px;
+  }
+
+table  {
+	font-family: century gothic;
+	color: #000;
+	font-weight: bold;
+	font-size: 25px;
+	position: absolute;
+	left: 58%;
+	top: 5%;
 }
 body {
-	background-image: url("https://cdn.pixabay.com/photo/2017/11/06/05/22/design-2922794_960_720.jpg");
+	background-image:linear-gradient( #191970 , #02aab0);
+	height: 100%;
+	background-size: 10000000px 700px;
+	background-position: all;
+
 }
 
 a {
-	font-size: 70px;
-	color: #b22222;
-	position: relative;
-	left: 1000px;
-	border: 5px solid #b22222;
-	bottom: 500px;
-	height:70px;
-	padding:10px;
-	width:20px;
-	background-color: #f0ffff;
+	font-size: 45px;
+	color: #000;
+	position: fixed;
+	left: 42%;
+	border: 5px solid #000;
+	top: 550px;
+	bottom: 100px;
+	height:60px;
+	padding:0px;
+	width:120px;
+	background-color: #1e90ff;
+	text-shadow: 2px 2px white;
+	text-align: center;
 
-}
+} 
