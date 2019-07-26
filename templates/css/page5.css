@@ -1,28 +1,56 @@
 body{
-	background-image: url("https://as1.ftcdn.net/jpg/01/77/39/90/500_F_177399067_uMk7lBeKcDPQY5eadwPPcy1vGaB16sTq.jpg");
+	background-image: linear-gradient( #87ceeb , #191970);
+	height: 100%;
+	background-size: 1350px 670px;
+	background-repeat: no-repeat;
 }
 h1 {
 	font-size: 100px;
 	font-family: georgia;
 	text-align: center;
-	color: #FF1493;
-	background: #98FB98;
+	color: #000;
+	background: #fff;
+	height: 130px;
+	
+	
 }
 h3{
 	font-size: 50px;
 	font-family: arial;
 	text-align: center;
-	color: #FF1493;
-	background: #98FB98;
+	color: #000;
+	background: #fff;
+	height: 70;
+	
 }
 
-a{
+.page1{
 	font-size: 50px;
 	font-family: monospace;
-	background: #98FB98;
-	background-size: 50px;
-	color:red;
+	color: #000;
 	font-weight: bold;
-	position: relative;
-	left: 1000px;
-}
+	position: absolute;
+	left: 1200px;
+	top: 590px;
+	bottom: 50px;
+
+} 
+img {
+	margin-left:  26%;
+	margin-bottom: 60%;
+	float: left;
+    width: 625px;
+    height: 290px;
+    position: fixed;
+   
+ }
+ .check_prizes {
+ 	font-size: 50px;
+	font-family: monospace;
+	color: #000;
+	font-weight: bold;
+	position: absolute;
+	right: 1010px;
+	top: 590px;
+	bottom: 60px;
+ }

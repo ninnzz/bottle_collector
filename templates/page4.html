@@ -3,66 +3,67 @@
 
 <head>
   
-  <meta charset="UTF-8"
-	<link rel="stylesheet" type="text/css" href="page4.css">
-	<link rel="stylesheet" type="text/py" href="capture.py">
-
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/templates/css/page4.css">
+  <script type="text/javascript" src="/templates/javascript/jquery-3.4.1.min.js"></script>
 </head>
 <body>
   <div id="main">
 
     <div id="screenshot">
-      <video autoplay></video>
-      <img src="">
-      <canvas style="display:none;"></canvas>
-      <button id="capture-button">Capture video</button>
-      <button id="screenshot-button">Capture video</button>
-      <button id="cssfilters-apply">Apply CSS filter</button>
+		<figure style="width: 320px; height: 240px;">
+			<img style="width: 420px; height: 240px;" src="http://localhost:5000/stream">
+		</figure>
+		<button onclick="callBottleCheckerAPI();">Check price</button>
     </div>
+	<table>
+		<thead>
+			<tr>
+				<td> Bottle </td>
+				<td> Point </td>
+			</tr>
+		</thead>
+		<tbody id="bottles">	
+		</tbody>
+	</table>
 
+	<form action="/submit_bottle_records" method="post">
+		
+		<input type="hidden" name="bottle_ids" value="" id="bottle_id_holder" />
+		<input type="submit" value="Submit bottles" />
+	</form>
   </div>
-  <script type="text/javascript">
 
-    const captureVideoButton = document.querySelector('#capture-button');
-    const screenshotButton = document.querySelector('#screenshot-button');
-    const img = document.querySelector('#screenshot img');
-    const video = document.querySelector('#screenshot video');
-    const constraints = {
-      video: true
-    };
-
-    const canvas = document.createElement('canvas');
-
-    // Start camera
-    navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
-
-    screenshotButton.onclick = video.onclick = function() {
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      canvas.getContext('2d').drawImage(video, 0, 0);
-  
-      // Other browsers will fall back to image/png
-      // Remove this, nilagay ko lang para makita ung image
-      img.src = canvas.toDataURL('image/jpg');
-      callBottleCheckerAPI();
-
-    };
-
-    function handleSuccess(stream) {
-      screenshotButton.disabled = false;
-      video.srcObject = stream;
-    }
-
-    function handleError(stream) {
-      console.log('Error lol');
-    }
-
+  <script type="text/javascript"> 
     function callBottleCheckerAPI() {
-        console.log(canvas.toDataURL('image/jpeg'));
+		$.ajax({
+			url: '/check_prices',
+			data: {},
+			error: failedAPIResult,
+			success: gotAPIResult,
+			type: 'POST'
+		});
+
+    }
+
+    function gotAPIResult(data) {
+		console.log(data);
+		  bottle = document.getElementById("bottles");
+		  tr = document.createElement("tr");
+		  tr.innerHTML =  "<td>" +data.name + "</td> <td>" +data.points +"</td>";
+		  bottle.appendChild(tr);
+		  console.log(data.id);
+
+		 b_id = document.getElementById("bottle_id_holder");
+		 b_id.value = b_id.value+" "+ data.id; 
+		// add value to the form input type hidden
+
+  	}
+
+    function failedAPIResult(error) {
+      console.log(error);
     }
 
   </script>
-
-
 </body>
 </html>

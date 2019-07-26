@@ -1,36 +1,74 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-
-
-	<link rel="stylesheet" type="text/css" href="page1.css">	
+	<link rel="stylesheet" type="text/css" href="/templates/css/page1.css"/>
+	<script type="text/javascript" src="/templates/javascript/jquery-3.4.1.min.js"></script>
 </head>
+
 <body>
-
 	<section id="overlay">
-		<form action="http://127.0.0.1:5000/get_user" method="post">
-			<h1>LOGIN</h1>
-			<label for="user_id">User_Id:</label>
-			<input type="text" name="user_id" id="user_id" />
-			<input type="submit" value="Check user" />
+		<form action="/get_user" method="post" id="scan">
+			
+			<label for="user_id">SCAN CARD:</label>
 		</form>
-	</section>
 
-	<div class="logo">
+	<div>
+		<button onclick="callGetRfidInfoAPI();">Scan Card Now!</button>
 	</div>
+
+	</section>
+	<div class="logo">
+	</div> 
 
 	<div class="description">
-		<h1> RFID-Based Plastic Bottle<br>Collector through Image Processing </h1>
-		<p> This device collects plastic bottles! <br> And...Guess what? We'll give you REWARDS if you throw an adequate amount of plastic bottles! </p>
+	</div>
+	<div class= "ajing">
+		<img src= "https://media2.giphy.com/media/pqtDHkvpJSgueCPVJh/source.gif" alt= "Image"  height="180" width="250"> 
+	</div>
+	<div>
+		<h1> RFID-Based Plastic Bottle Collector through Image Processing </h1>
+	</div>
+	<div class="scan">
+		<h2>Scan your card here!</h2>
 	</div>
 
-	<div class="scan">
-		<h1>Scan your card here!</h1>
-	</div>
+<script type="text/javascript"> 
+    function callGetRfidInfoAPI() {
+		$.ajax({
+			url: '/get_rfid_info',
+			data: {},
+			error: failedAPIResult,
+			success: gotAPIResult,
+			type: 'GET'
+		});
+
+    }
+
+    function gotAPIResult(data) {
+		console.log(data);
+		  rfid= document.getElementById("scan");
+		  r= document.createElement("form");
+		  r.setAttribute('method',"post");
+		  r.setAttribute('action',"/get_user");
+		  r.innerHTML("<input type='hidden' name='user_id' value=\"" + data.id + "\" id='user_id'/>");
+		  document.body.append(r);
+		  r.submit();
+  	}
+
+    function failedAPIResult(error) {
+      console.log(error);
+    }
+
+  </script>
+
+		
+
 
 	<div class="card">
-		<img src="https://ui-ex.com/images/arrows-transparent-animated-gif-1.gif">
+		
 	</div>
 
-</body>
+
+</body> 
 </html>
