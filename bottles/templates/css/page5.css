@@ -1,7 +1,7 @@
 body{
 	background-image: linear-gradient( #87ceeb , #191970);
 	height: 100%;
-	background-size: 1370px 700px;
+	background-size: 1350px 670px;
 	background-repeat: no-repeat;
 }
 h1 {
@@ -10,8 +10,9 @@ h1 {
 	text-align: center;
 	color: #000;
 	background: #fff;
+	height: 130px;
 	
-
+	
 }
 h3{
 	font-size: 50px;
@@ -19,18 +20,37 @@ h3{
 	text-align: center;
 	color: #000;
 	background: #fff;
+	height: 70;
 	
 }
 
-a{
+.page1{
 	font-size: 50px;
 	font-family: monospace;
-	background: #fff;
-	background-size: 60px;
 	color: #000;
 	font-weight: bold;
-	position: relative;
-	left: 1000px;
-	
+	position: absolute;
+	left: 1200px;
+	top: 590px;
+	bottom: 50px;
 
-}
+} 
+img {
+	margin-left:  26%;
+	margin-bottom: 60%;
+	float: left;
+    width: 625px;
+    height: 290px;
+    position: fixed;
+   
+ }
+ .check_prizes {
+ 	font-size: 50px;
+	font-family: monospace;
+	color: #000;
+	font-weight: bold;
+	position: absolute;
+	right: 1010px;
+	top: 590px;
+	bottom: 60px;
+ }

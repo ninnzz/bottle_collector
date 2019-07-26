@@ -27,7 +27,7 @@
 		</tbody>
 	</table>
 
-	<form action="http://127.0.0.1:5000/submit_bottle_records" method="post">
+	<form action="/submit_bottle_records" method="post">
 		
 		<input type="hidden" name="bottle_ids" value="" id="bottle_id_holder" />
 		<input type="submit" value="Submit bottles" />
@@ -37,7 +37,7 @@
   <script type="text/javascript"> 
     function callBottleCheckerAPI() {
 		$.ajax({
-			url: 'http://127.0.0.1:5000/check_prices',
+			url: '/check_prices',
 			data: {},
 			error: failedAPIResult,
 			success: gotAPIResult,
