@@ -13,7 +13,7 @@ h1 {
 	font-size: 30px;
 	left: 40%;
 	position: fixed;
-	bottom: 555px;
+	bottom: 610px;
 	border: 8px solid #000;
 	height: 26px;
 	padding:15px;
@@ -252,3 +252,10 @@ a {
 	transform: rotate(90deg)
 
 }
+
+@media only screen and (max-width: 710px) {
+	
+
+
+
+	}

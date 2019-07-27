@@ -1,44 +1,7 @@
 
-body{
-	height:400px;
-	width:450px;
-}
-
-.box{
-	border: 5px solid #000;
-
-}
-
-a {
-	font-size: 60px;
-	color: #b22222;
-	border: 5px solid #b22222;
-	height:70px;
-	padding:10px;
-	width:20px;
-	background-color: #f0ffff;
-	position: relative;
-	left: 700px;
-	bottom: 0 auto;
-}
-
-.list  {
-	font-family: century gothic;
-	color: #000;
-	font-weight: bold;
-	font-size: 20px;
-	position: relative;
-	left: 600px;
-	bottom: 10px;
-
-
-}
 
 body {
-	background-image:linear-gradient( #87ceeb , #191970);
-	background-repeat: repeat;
-	height: 633px;
-	background-position: all;
+	background-color: #7cfc00;
 
 } 
 
@@ -52,38 +15,65 @@ body {
 
 img {
 
-	position: relative;
-	left: 130%;
-	right: 80%;
+	padding: 0px 80px 0px;
 }
 
 button {
-
-	position: relative;
-	left: 100%;
-	right: 80%;
+	font-size: 30px;
+	margin: 0px 400px 0px 200px;
 }
 
 input {
+	font-size: 30px;
+	margin: 0px 700px 0px 400px;
 
-	position: relative;
-	left: 173%;
-	right: 80%;
-	top: 100%;
-	bottom: 50%;
 }
 
 table {
 
 	font-family: monospace;
 	font-weight: bold;
-	font-size: 22px;
-	position: relative;
-	top: 40px;
-	left: 450px;
-	right: 20px;
-	bottom: 10%;
-	color: #000;
-	margin:0 2.5%;
-	width:20;
+	font-size: 30px;
+	margin: 10px 400px 0px 200px;
+
+}
+
+
+@media only screen and (max-width: 710px) {
+
+	.booth {
+	width: 400px;
+	background: #ccc;
+}
+
+
+
+	img {
+
+	padding: 0px 80px 0px;
+}
+
+	button {
+	font-size: 20px;
+	padding: 0px 10px 0px;
+	margin: 0px 80px 0px;
+}
+
+	input {
+	font-size: 20px;
+	padding: 0px 30px 0px;
+	margin: 0px 80px 0px;
+
+}
+
+	table {
+
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 10px 10px 0px;
+	margin: 10px 80px 0px;
+
+}
+	
 }
