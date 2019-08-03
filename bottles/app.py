@@ -33,7 +33,8 @@ def create_app(config):
         response.headers.add('Access-Control-Allow-Headers', ','.join(app.config['ALLOWED_HEADERS']))
         response.headers.add('Access-Control-Allow-Methods', ','.join(app.config['ALLOWED_METHODS']))
         return response
-
+        
+    vid_worker.start()
     app.register_blueprint(handler)
     classifier.load_data(Config.IMAGES_FOLDER)
     classifier.train()

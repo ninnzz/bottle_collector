@@ -12,19 +12,19 @@ from camera_library import vid_worker
 from flask import Flask, make_response
 from mfrc522 import SimpleMFRC522
 from flask import render_template, Response, send_from_directory, jsonify
-# from gevent import queue, spawn, monkey
+from gevent import queue, spawn, monkey
 
 import os
 import cv2
 import time
 import json
-import queue
+# import queue
 import random
 import numpy as np
 import RPi.GPIO as GPIO
 
 
-# monkey.patch_all()
+monkey.patch_all()
 body = queue.Queue()
 handler = Blueprint('router', __name__)
 
@@ -147,17 +147,17 @@ def stream():
     def on_end():
         body.put_nowait(StopIteration)
 
-    def gen():
-        while True:
-            yield body.get()
+    # def gen():
+    #     while True:
+    #         yield body.get()
         
 
     vid_worker.on_vid = on_vid
     vid_worker.on_end = on_end
-    # spawn(vid_worker.start)
-    vid_worker.start()
+    spawn(vid_worker.start)
+    # vid_worker.start()
 
-    return Response(gen(),
+    return Response(body,
                     mimetype='multipart/x-mixed-replace; boundary={}'.format(boundary),
                     content_type='multipart/x-mixed-replace; boundary={}'.format(boundary),
                     status='200',
