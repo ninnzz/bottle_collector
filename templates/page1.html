@@ -46,7 +46,7 @@
 		  r= document.createElement("form");
 		  r.setAttribute('method',"post");
 		  r.setAttribute('action',"/get_user");
-		  r.innerHTML("<input type='hidden' name='user_id' value=\"" + data.id + "\" id='user_id'/>");
+		  r.innerHTML = "<input type='hidden' name='user_id' value=\"" + data.id + "\" id='user_id'/>";
 		  document.body.append(r);
 		  r.submit();
   	}
